@@ -4,14 +4,14 @@ pipeline {
 	stages {
 		stage("checout") {
 			steps {
-				git "https://github.com/cygday/docker-jenkins-basic.git"
+				git branch: "main", url: "https://github.com/cygday/docker-jenkins-basic.git"
 			}
 		}
 
 		stage("build docker image") {
 			steps {
 				script {
-					dockerImage = docker.build("jenkins-docker-basic:latest")
+					sh "docker.build -t jenkins-docker-basic:latest . ")
 				}
 			}
 		}
