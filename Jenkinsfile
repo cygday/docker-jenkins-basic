@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage("checout") {
 			steps {
-				git "repo-url"
+				git "https://github.com/cygday/docker-jenkins-basic.git"
 			}
 		}
 
