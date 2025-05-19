@@ -11,7 +11,7 @@ pipeline {
 		stage("build docker image") {
 			steps {
 				script {
-					sh "docker.build -t jenkins-docker-basic:latest . ")
+					sh "docker build -t jenkins-docker-basic:latest . ")
 				}
 			}
 		}
@@ -19,7 +19,7 @@ pipeline {
 		stage("run container") {
 			steps {
 				script {
-					dockerImage.run()
+					sh "docker run -d jenkins-docker-basic:latest"
 				}
 			}
 		}
